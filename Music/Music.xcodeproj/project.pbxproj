@@ -13,6 +13,10 @@
 		0C6B02391F38C30A00003709 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C6B02371F38C30A00003709 /* Main.storyboard */; };
 		0C6B023B1F38C30A00003709 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C6B023A1F38C30A00003709 /* Assets.xcassets */; };
 		0C6B023E1F38C30A00003709 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C6B023C1F38C30A00003709 /* LaunchScreen.storyboard */; };
+		0C6B02461F39F72200003709 /* eason.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C6B02451F39F72200003709 /* eason.jpg */; };
+		0C6B02481F39F72A00003709 /* 陈奕迅 - 陪你度过漫长岁月 (国语).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0C6B02471F39F72A00003709 /* 陈奕迅 - 陪你度过漫长岁月 (国语).mp3 */; };
+		0C6B024A1F39F88300003709 /* 陈奕迅 - 陪你度过漫长岁月 (国语).lrc in Resources */ = {isa = PBXBuildFile; fileRef = 0C6B02491F39F88300003709 /* 陈奕迅 - 陪你度过漫长岁月 (国语).lrc */; };
+		0C6B024D1F39F91A00003709 /* ZMJParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6B024C1F39F91A00003709 /* ZMJParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,11 @@
 		0C6B023A1F38C30A00003709 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0C6B023D1F38C30A00003709 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0C6B023F1F38C30A00003709 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0C6B02451F39F72200003709 /* eason.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = eason.jpg; sourceTree = "<group>"; };
+		0C6B02471F39F72A00003709 /* 陈奕迅 - 陪你度过漫长岁月 (国语).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "陈奕迅 - 陪你度过漫长岁月 (国语).mp3"; sourceTree = "<group>"; };
+		0C6B02491F39F88300003709 /* 陈奕迅 - 陪你度过漫长岁月 (国语).lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "陈奕迅 - 陪你度过漫长岁月 (国语).lrc"; sourceTree = "<group>"; };
+		0C6B024B1F39F91A00003709 /* ZMJParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMJParser.h; sourceTree = "<group>"; };
+		0C6B024C1F39F91A00003709 /* ZMJParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMJParser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +71,11 @@
 				0C6B02321F38C30A00003709 /* AppDelegate.m */,
 				0C6B02341F38C30A00003709 /* ViewController.h */,
 				0C6B02351F38C30A00003709 /* ViewController.m */,
+				0C6B024B1F39F91A00003709 /* ZMJParser.h */,
+				0C6B024C1F39F91A00003709 /* ZMJParser.m */,
+				0C6B02491F39F88300003709 /* 陈奕迅 - 陪你度过漫长岁月 (国语).lrc */,
+				0C6B02471F39F72A00003709 /* 陈奕迅 - 陪你度过漫长岁月 (国语).mp3 */,
+				0C6B02451F39F72200003709 /* eason.jpg */,
 				0C6B02371F38C30A00003709 /* Main.storyboard */,
 				0C6B023A1F38C30A00003709 /* Assets.xcassets */,
 				0C6B023C1F38C30A00003709 /* LaunchScreen.storyboard */,
@@ -112,6 +126,11 @@
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = 46MPKUG8R9;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -138,8 +157,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C6B024A1F39F88300003709 /* 陈奕迅 - 陪你度过漫长岁月 (国语).lrc in Resources */,
 				0C6B023E1F38C30A00003709 /* LaunchScreen.storyboard in Resources */,
 				0C6B023B1F38C30A00003709 /* Assets.xcassets in Resources */,
+				0C6B02461F39F72200003709 /* eason.jpg in Resources */,
+				0C6B02481F39F72A00003709 /* 陈奕迅 - 陪你度过漫长岁月 (国语).mp3 in Resources */,
 				0C6B02391F38C30A00003709 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,6 +173,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C6B024D1F39F91A00003709 /* ZMJParser.m in Sources */,
 				0C6B02361F38C30A00003709 /* ViewController.m in Sources */,
 				0C6B02331F38C30A00003709 /* AppDelegate.m in Sources */,
 				0C6B02301F38C30A00003709 /* main.m in Sources */,
@@ -312,6 +335,7 @@
 				0C6B02441F38C30A00003709 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -12,18 +12,50 @@
 
 #import <MediaPlayer/MediaPlayer.h>
 
-@interface ViewController ()
+#import "ZMJParser.h"
+
+
+@interface ViewController ()<UITableViewDelegate, UITableViewDataSource> {
+    NSArray *_lrcSource;
+    NSTimer *_timer;
+    __weak IBOutlet UISlider *progressSlider;
+}
 
 @property (nonatomic, strong) AVAudioPlayer *player;
 
+@property (nonatomic, strong) UITableView *lrcTableView;
 
 @end
 
 @implementation ViewController
 
+- (IBAction)changeValue:(UISlider *)sender {
+    self.player.currentTime = sender.value * self.player.duration;
+}
+
+- (UITableView *)lrcTableView {
+    if (!_lrcTableView) {
+        _lrcTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        _lrcTableView.delegate = self;
+        _lrcTableView.dataSource = self;
+    }
+    return _lrcTableView;
+}
+
+- (void)updateLrc {
+    progressSlider.value = self.player.currentTime/self.player.duration;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+     
+    
+    
+    _timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(updateLrc) userInfo:nil repeats:YES];
+    _lrcSource = [ZMJParser parseLrcWithFileName:@"陈奕迅 - 陪你度过漫长岁月 (国语).lrc"];
+    
+    [self.view addSubview:self.lrcTableView];
     
     AVAudioSession *session = [AVAudioSession sharedInstance];
     [session setCategory:AVAudioSessionCategoryPlayback error:nil];
@@ -35,6 +67,8 @@
     //    [self.player playAtTime:20];
     [self.player play];
     
+    self.player.numberOfLoops = -1;
+    
     MPNowPlayingInfoCenter *infoCenter = [MPNowPlayingInfoCenter defaultCenter];
     
     infoCenter.nowPlayingInfo = @{
@@ -42,48 +76,27 @@
                                   MPMediaItemPropertyArtist:@"陈奕迅",
                                   MPMediaItemPropertyTitle:@"陪你度过漫长岁月 (国语)",
                                   MPMediaItemPropertyAlbumTitle:@"专辑",
-                                  //                                  MPMediaItemPropertyAlbumTrackCount:@(1),
-                                  //                                  MPMediaItemPropertyAlbumTrackNumber:@(2),
-                                  //                                  MPMediaItemPropertyComposer:@"作曲家",
-                                  //                                  MPMediaItemPropertyDiscCount:@(3),
-                                  //                                  MPMediaItemPropertyDiscNumber:@(4),
-                                  //                                  MPMediaItemPropertyGenre:@"流派",
-                                  //                                  MPMediaItemPropertyPersistentID:@"PersistentID",
+                                 
                                   MPMediaItemPropertyPlaybackDuration:@(60*4+2),
                                   };
-    
-    /*
-     设置数据时对应的Key
-     
-     currently supported include 主要的
-     
-     // MPMediaItemPropertyAlbumTitle       专辑标题
-     // MPMediaItemPropertyAlbumTrackCount  专辑歌曲数
-     // MPMediaItemPropertyAlbumTrackNumber 专辑歌曲编号
-     // MPMediaItemPropertyArtist           艺术家/歌手
-     // MPMediaItemPropertyArtwork          封面图片 MPMediaItemArtwork类型
-     // MPMediaItemPropertyComposer         作曲
-     // MPMediaItemPropertyDiscCount        专辑数
-     // MPMediaItemPropertyDiscNumber       专辑编号
-     // MPMediaItemPropertyGenre            类型/流派
-     // MPMediaItemPropertyPersistentID     唯一标识符
-     // MPMediaItemPropertyPlaybackDuration 歌曲时长  NSNumber类型
-     // MPMediaItemPropertyTitle            歌曲名称
-     
-     Additional metadata properties 额外的
-     
-     MP_EXTERN NSString *const MPNowPlayingInfoPropertyElapsedPlaybackTime  当前时间 NSNumber
-     MP_EXTERN NSString *const MPNowPlayingInfoPropertyPlaybackRate
-     MP_EXTERN NSString *const MPNowPlayingInfoPropertyDefaultPlaybackRate
-     MP_EXTERN NSString *const MPNowPlayingInfoPropertyPlaybackQueueIndex
-     MP_EXTERN NSString *const MPNowPlayingInfoPropertyPlaybackQueueCount
-     MP_EXTERN NSString *const MPNowPlayingInfoPropertyChapterNumber
-     MP_EXTERN NSString *const MPNowPlayingInfoPropertyChapterCount
-     MP_EXTERN NSString *const MPNowPlayingInfoPropertyAvailableLanguageOptions   MPNowPlayingInfoLanguageOptionGroup
-     MP_EXTERN NSString *const MPNowPlayingInfoPropertyCurrentLanguageOptions
-     */
-    
 }
+
+#pragma mark - table view delegate & data source
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return _lrcSource.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    static NSString *cellid = @"lrcCellId";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellid];
+    }
+    cell.textLabel.text = _lrcSource[indexPath.row];
+    return cell;
+}
+
 
 
 - (void)didReceiveMemoryWarning {
