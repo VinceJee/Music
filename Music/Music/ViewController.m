@@ -17,7 +17,7 @@
 #import "ZMJlrcCell.h"
 
 static NSString *cellid = @"ZMJlrcCellId";
-@interface ViewController ()<UITableViewDelegate, UITableViewDataSource> {
+@interface ViewController ()<UITableViewDelegate, UITableViewDataSource,AVAudioPlayerDelegate> {
     NSArray *_lrcSource;
     CADisplayLink *_displayLink;
     __weak IBOutlet UISlider *progressSlider;
@@ -95,34 +95,14 @@ static NSString *cellid = @"ZMJlrcCellId";
         }
     }];
     
+    [self changeLockScreenProgress];
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    
-    // 测试一下是不是可以上传
-    _currentIndex = 0;
-    _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateLrc)];
-    [_displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
-    
-    _lrcSource = [ZMJParser parseLrcWithFileName:@"陈奕迅 - 陪你度过漫长岁月 (国语).lrc"];
-    
-    
-    [self.view addSubview:self.lrcTableView];
-    
-    
-    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"陈奕迅 - 陪你度过漫长岁月 (国语).mp3" withExtension:nil] error:nil];
-    
-    //    [self.player playAtTime:20];
-    [self.player prepareToPlay];
-    [self.player play];
-    self.player.meteringEnabled = YES;
-    self.player.numberOfLoops = -1;
+- (void)changeLockScreenProgress {
     
     MPNowPlayingInfoCenter *infoCenter = [MPNowPlayingInfoCenter defaultCenter];
     
-    UIImage *image = [UIImage imageNamed:@"eason.jpg"];
+    UIImage *image = [self updateLockScreenLrc];//[UIImage imageNamed:@"eason.jpg"];
     MPMediaItemArtwork *artwork = [[MPMediaItemArtwork alloc] initWithBoundsSize:image.size requestHandler:^UIImage * _Nonnull(CGSize size) {
         return image;
     }];
@@ -136,23 +116,124 @@ static NSString *cellid = @"ZMJlrcCellId";
                                   MPNowPlayingInfoPropertyElapsedPlaybackTime:@(self.player.currentTime)
                                   };
     
-    NSDate *date = [NSDate date];
+}
+
+- (void)audioSessionInterruptionNotification:(NSNotification *)notification {
+    AVAudioSessionInterruptionType type = [notification.userInfo[AVAudioSessionInterruptionTypeKey] integerValue];
+    if (type == AVAudioSessionInterruptionTypeBegan) {
+        [self.player pause];
+    } else if (type == AVAudioSessionInterruptionTypeEnded) {
+        [self.player play];
+    }
+}
+
+- (void)end {
+    [_displayLink invalidate];
+    _displayLink = nil;
+}
+
+- (void)start {
+    _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateLrc)];
+    [_displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)test1 {
+    UIImage *lockImage = [UIImage imageNamed:@"eason.jpg"];
+
+    CGRect rect = CGRectMake(100, 100, 100, 100);
+    [[UIColor redColor]set];
+    UIRectFill(rect);
+               
+    UIRectFrameUsingBlendMode(rect, kCGBlendModeColor);
+    
+    UIImageView *imagev = [[UIImageView alloc] initWithImage:lockImage];
+    imagev.frame = rect;
+    [self.view addSubview:imagev];
+}
+
+- (void)test {
+   
+    UIImage *image1 = [UIImage imageNamed:@"eason.jpg"];
+    UIImage *image2 = [UIImage imageNamed:@"eason.jpg"];
+    
+    UIGraphicsBeginImageContext(CGRectMake(0, 0, 100, 100).size);
+    
+    // Draw image1
+    [image1 drawInRect:CGRectMake(0, 0, 100, 100)];
+    
+    // Draw image2
+    [image2 drawInRect:CGRectMake(0, 30, 100, 100)];
+    
+    UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    UIImageView *imagev = [[UIImageView alloc] initWithImage:resultingImage];
+    
+    imagev.frame = CGRectMake(100, 100, 200, 200);
+    
+    [imagev.layer renderInContext:UIGraphicsGetCurrentContext()];
+    
+    [self.view addSubview:imagev];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view, typically from a nib.
+    
+    [self start];
+    
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidBecomeActive) name:UIApplicationDidBecomeActiveNotification object:nil];
+
+    
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackground) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(audioSessionInterruptionNotification:) name:AVAudioSessionInterruptionNotification object:[AVAudioSession sharedInstance]];
+    
+    // 测试一下是不是可以上传
+    _currentIndex = 0;
+    
+    _lrcSource = [ZMJParser parseLrcWithFileName:@"陈奕迅 - 陪你度过漫长岁月 (国语).lrc"];
+    
+    
+//    [self.view addSubview:self.lrcTableView];
+    
+    
+    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"陈奕迅 - 陪你度过漫长岁月 (国语).mp3" withExtension:nil] error:nil];
+    
+    self.player.delegate = self;
+    //    [self.player playAtTime:20];
+    [self.player prepareToPlay];
+    [self.player play];
+//    self.player.meteringEnabled = YES;
+//    self.player.numberOfLoops = -1;
+    
+    [self changeLockScreenProgress];
+
     
     [[MPRemoteCommandCenter sharedCommandCenter].changePlaybackPositionCommand addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent * _Nonnull event) {
         
-//        self.player.currentTime = event.timestamp - [date timeIntervalSince1970];
-//        
-//        [self.player prepareToPlay];
+        MPChangePlaybackPositionCommandEvent *ev = (MPChangePlaybackPositionCommandEvent *)event;
+        
+        self.player.currentTime = ev.positionTime;
+        [self changeLockScreenProgress];
         return MPRemoteCommandHandlerStatusSuccess;
     }];
     
     [[MPRemoteCommandCenter sharedCommandCenter].playCommand addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent * _Nonnull event) {
         [self.player play];
+        [self start];
         return MPRemoteCommandHandlerStatusSuccess;
     }];
     
     [[MPRemoteCommandCenter sharedCommandCenter].pauseCommand addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent * _Nonnull event) {
         [self.player pause];
+        [self end];
         return MPRemoteCommandHandlerStatusSuccess;
     }];
     
@@ -211,6 +292,92 @@ static NSString *cellid = @"ZMJlrcCellId";
 //    UIEventSubtypeRemoteControlEndSeekingForward    = 109,
     
     NSLog(@"---%zd",event.subtype);
+    
+}
+
+#pragma mark - AVAudioPlayerDelgate
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
+    [self changeLockScreenProgress];
+    [self.player play];
+}
+
+- (UIImage *)updateLockScreenLrc {
+    
+    NSInteger preIndex = _currentIndex - 1;
+    ZMJLrcModel *preModel;
+    if (preIndex>=0) {
+        preModel = _lrcSource[preIndex];
+        if (!preModel.lrcString && preIndex>1) {
+            preIndex = _currentIndex - 2;
+            preModel = _lrcSource[preIndex];
+        }
+    }
+    ZMJLrcModel *model = _lrcSource[_currentIndex];
+    
+    NSInteger nextIndex = _currentIndex+1;
+    ZMJLrcModel *nextModel;
+    if (nextIndex <_lrcSource.count) {
+        nextModel = _lrcSource[nextIndex];
+        if (!nextModel.lrcString && nextIndex+1<_lrcSource.count) {
+            nextIndex = _currentIndex+2;
+            nextModel = _lrcSource[nextIndex];
+        }
+    }
+    
+    UIImage *lockImage = [UIImage imageNamed:@"eason.jpg"];
+
+    UIImageView *lockImageView = [[UIImageView alloc] initWithImage:lockImage];
+    lockImageView.frame = CGRectMake(0, 0, lockImage.size.width, lockImage.size.height);
+    
+    UIView *coverView = [[UIView alloc] initWithFrame:lockImageView.frame];
+    
+    CGFloat h = 30;
+    CGFloat padding = 5;
+    CGFloat firstOriginY = coverView.bounds.size.height - h * 3 - padding * 3;
+    
+    UILabel *firstLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, firstOriginY, coverView.bounds.size.width, h)];
+    
+    UILabel *secLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, firstOriginY + h + padding, coverView.bounds.size.width, h)];
+    
+    UILabel *thirdLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, firstOriginY + 2 * h + 2 * padding, coverView.bounds.size.width, h)];
+    
+    thirdLabel.textColor = [UIColor blackColor];
+    
+    firstLabel.textColor = [UIColor blackColor];
+    
+    secLabel.textColor = [UIColor blackColor];
+    
+    firstLabel.textAlignment = NSTextAlignmentCenter;
+    secLabel.textAlignment = NSTextAlignmentCenter;
+    thirdLabel.textAlignment = NSTextAlignmentCenter;
+    
+    firstLabel.text = preModel.lrcString;
+    secLabel.text = model.lrcString;
+    thirdLabel.text = nextModel.lrcString;
+    
+    [coverView addSubview:firstLabel];
+    [coverView addSubview:secLabel];
+    [coverView addSubview:thirdLabel];
+    
+    firstLabel.backgroundColor = [UIColor redColor];
+    secLabel.backgroundColor = [UIColor yellowColor];
+    thirdLabel.backgroundColor = [UIColor greenColor];
+    
+    coverView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.3];
+    
+    [lockImageView addSubview:coverView];
+    lockImageView.contentMode = UIViewContentModeScaleAspectFit;
+
+    
+    UIGraphicsBeginImageContext(lockImageView.frame.size);
+    
+    [lockImageView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return image;
     
 }
 
