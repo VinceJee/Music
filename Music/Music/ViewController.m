@@ -101,6 +101,7 @@ static NSString *cellid = @"ZMJlrcCellId";
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    // 测试一下是不是可以上传
     _currentIndex = 0;
     _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateLrc)];
     [_displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
