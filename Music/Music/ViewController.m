@@ -111,21 +111,64 @@ static NSString *cellid = @"ZMJlrcCellId";
     
     [self.view addSubview:self.lrcTableView];
     
-    AVAudioSession *session = [AVAudioSession sharedInstance];
-    [session setCategory:AVAudioSessionCategoryPlayback error:nil];
-    
-    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     
     self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"陈奕迅 - 陪你度过漫长岁月 (国语).mp3" withExtension:nil] error:nil];
     
     //    [self.player playAtTime:20];
+    [self.player prepareToPlay];
     [self.player play];
-    
+    self.player.meteringEnabled = YES;
     self.player.numberOfLoops = -1;
     
-//    MPNowPlayingInfoCenter *infoCenter = [MPNowPlayingInfoCenter defaultCenter];
+    MPNowPlayingInfoCenter *infoCenter = [MPNowPlayingInfoCenter defaultCenter];
     
-//    infoCenter.nowPlayingInfo = @{ MPMediaItemPropertyArtwork:[[MPMediaItemArtwork alloc] initWithImage:[UIImage imageNamed:@"eason.jpg"]],MPMediaItemPropertyArtist:@"陈奕迅",MPMediaItemPropertyTitle:@"陪你度过漫长岁月 (国语)",MPMediaItemPropertyAlbumTitle:@"专辑",MPMediaItemPropertyPlaybackDuration:@(60*4+2),};
+    UIImage *image = [UIImage imageNamed:@"eason.jpg"];
+    MPMediaItemArtwork *artwork = [[MPMediaItemArtwork alloc] initWithBoundsSize:image.size requestHandler:^UIImage * _Nonnull(CGSize size) {
+        return image;
+    }];
+    
+    infoCenter.nowPlayingInfo = @{
+                                  MPMediaItemPropertyArtwork:artwork,
+                                  MPMediaItemPropertyArtist:@"陈奕迅",
+                                  MPMediaItemPropertyTitle:@"陪你度过漫长岁月 (国语)",
+                                  MPMediaItemPropertyAlbumTitle:@"专辑",
+                                  MPMediaItemPropertyPlaybackDuration:@(self.player.duration),
+                                  MPNowPlayingInfoPropertyElapsedPlaybackTime:@(self.player.currentTime)
+                                  };
+    
+    NSDate *date = [NSDate date];
+    
+    [[MPRemoteCommandCenter sharedCommandCenter].changePlaybackPositionCommand addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent * _Nonnull event) {
+        
+//        self.player.currentTime = event.timestamp - [date timeIntervalSince1970];
+//        
+//        [self.player prepareToPlay];
+        return MPRemoteCommandHandlerStatusSuccess;
+    }];
+    
+    [[MPRemoteCommandCenter sharedCommandCenter].playCommand addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent * _Nonnull event) {
+        [self.player play];
+        return MPRemoteCommandHandlerStatusSuccess;
+    }];
+    
+    [[MPRemoteCommandCenter sharedCommandCenter].pauseCommand addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent * _Nonnull event) {
+        [self.player pause];
+        return MPRemoteCommandHandlerStatusSuccess;
+    }];
+    
+    [[MPRemoteCommandCenter sharedCommandCenter].previousTrackCommand addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent * _Nonnull event) {
+        return MPRemoteCommandHandlerStatusSuccess;
+    }];
+    
+    [[MPRemoteCommandCenter sharedCommandCenter].nextTrackCommand addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent * _Nonnull event) {
+        return MPRemoteCommandHandlerStatusSuccess;
+    }];
+    
+//    
+//    [[MPRemoteCommandCenter sharedCommandCenter].bookmarkCommand addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent * _Nonnull event) {
+//        return MPRemoteCommandHandlerStatusSuccess;
+//    }];
+    
 }
 
 #pragma mark - table view delegate & data source
@@ -148,6 +191,28 @@ static NSString *cellid = @"ZMJlrcCellId";
     return cell;
 }
 
+- (void)remoteControlReceivedWithEvent:(UIEvent *)event {
+//    [super remoteControlReceivedWithEvent:event];
+//    UIEventSubtypeNone                              = 0,
+//    
+//    // for UIEventTypeMotion, available in iPhone OS 3.0
+//    UIEventSubtypeMotionShake                       = 1,
+//    
+//    // for UIEventTypeRemoteControl, available in iOS 4.0
+//    UIEventSubtypeRemoteControlPlay                 = 100, // 播放
+//    UIEventSubtypeRemoteControlPause                = 101, // 暂停
+//    UIEventSubtypeRemoteControlStop                 = 102,
+//    UIEventSubtypeRemoteControlTogglePlayPause      = 103,
+//    UIEventSubtypeRemoteControlNextTrack            = 104, // 下一首
+//    UIEventSubtypeRemoteControlPreviousTrack        = 105, // 上一首
+//    UIEventSubtypeRemoteControlBeginSeekingBackward = 106,
+//    UIEventSubtypeRemoteControlEndSeekingBackward   = 107,
+//    UIEventSubtypeRemoteControlBeginSeekingForward  = 108,
+//    UIEventSubtypeRemoteControlEndSeekingForward    = 109,
+    
+    NSLog(@"---%zd",event.subtype);
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -9,7 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface ZMJlrcViewModel : NSObject
-
-
-
+ 
 @end

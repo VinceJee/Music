@@ -152,7 +152,7 @@
 				TargetAttributes = {
 					0C6B022A1F38C30A00003709 = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = 46MPKUG8R9;
+						DevelopmentTeam = F8DD88GNB8;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -330,10 +330,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 46MPKUG8R9;
+				DEVELOPMENT_TEAM = F8DD88GNB8;
 				INFOPLIST_FILE = Music/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.vince.zhu.Music;
+				PRODUCT_BUNDLE_IDENTIFIER = com.launch.zhu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -342,10 +342,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 46MPKUG8R9;
+				DEVELOPMENT_TEAM = F8DD88GNB8;
 				INFOPLIST_FILE = Music/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.vince.zhu.Music;
+				PRODUCT_BUNDLE_IDENTIFIER = com.launch.zhu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
