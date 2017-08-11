@@ -18,7 +18,7 @@
 
 static NSString *cellid = @"ZMJlrcCellId";
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource,AVAudioPlayerDelegate> {
-    NSArray *_lrcSource;
+    NSArray *_lrcModelSource;
     CADisplayLink *_displayLink;
     __weak IBOutlet UISlider *progressSlider;
     
@@ -43,7 +43,7 @@ static NSString *cellid = @"ZMJlrcCellId";
         _lrcTableView.delegate = self;
         _lrcTableView.dataSource = self;
         
-        _lrcTableView.rowHeight = 30;
+        _lrcTableView.rowHeight = 44;
         _lrcTableView.separatorColor = [UIColor clearColor];
         
         [_lrcTableView registerNib:[UINib nibWithNibName:@"ZMJlrcCell" bundle:nil] forCellReuseIdentifier:cellid];
@@ -58,33 +58,35 @@ static NSString *cellid = @"ZMJlrcCellId";
 - (void)updateLrc {
     progressSlider.value = self.player.currentTime/self.player.duration;
     
-    [_lrcSource enumerateObjectsUsingBlock:^(ZMJLrcModel *model, NSUInteger idx, BOOL * _Nonnull stop) {
+    [_lrcModelSource enumerateObjectsUsingBlock:^(ZMJLrcModel *model, NSUInteger idx, BOOL * _Nonnull stop) {
         
         // 当前歌词 model
         // 下行歌词
         ZMJLrcModel *modelNext = nil;
-        if (idx + 1 < _lrcSource.count) {
-            modelNext = _lrcSource[idx+1];
+        if (idx + 1 < _lrcModelSource.count) {
+            modelNext = _lrcModelSource[idx+1];
         }
         
         if (_currentIndex != idx && self.player.currentTime >= model.lrcTime && self.player.currentTime <modelNext.lrcTime) {
 
-            NSIndexPath *curIndexPath = [NSIndexPath indexPathForRow:idx inSection:0];
+//            NSIndexPath *curIndexPath = [NSIndexPath indexPathForRow:idx inSection:0];
             
-            NSIndexPath *preIndexPath = [NSIndexPath indexPathForRow:_currentIndex inSection:0];
+//            NSIndexPath *preIndexPath = [NSIndexPath indexPathForRow:_currentIndex inSection:0];
             
-            [self.lrcTableView scrollToRowAtIndexPath:curIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+            [self.lrcTableView setContentOffset:CGPointMake(0, self.lrcTableView.rowHeight *_currentIndex) animated:YES];
             
-            [self.lrcTableView reloadRowsAtIndexPaths:@[preIndexPath] withRowAnimation:UITableViewRowAnimationNone];
+//            [self.lrcTableView scrollToRowAtIndexPath:curIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
             
-            [self.lrcTableView reloadRowsAtIndexPaths:@[curIndexPath] withRowAnimation:UITableViewRowAnimationNone];
+//            [self.lrcTableView reloadRowsAtIndexPaths:@[preIndexPath] withRowAnimation:UITableViewRowAnimationNone];
+            
+//            [self.lrcTableView reloadRowsAtIndexPaths:@[curIndexPath] withRowAnimation:UITableViewRowAnimationNone];
             
             _currentIndex = idx;
         }
         
         if (_currentIndex == idx) {
             
-            CGFloat totalTime = modelNext.lrcTime - model.lrcTime;
+            CGFloat totalTime = modelNext.lrcTime - model.lrcGoneTime;
             CGFloat currTime = self.player.currentTime - model.lrcTime;
             
             NSIndexPath *currentIndexPath = [NSIndexPath indexPathForRow:idx inSection:0];
@@ -92,10 +94,12 @@ static NSString *cellid = @"ZMJlrcCellId";
             ZMJlrcCell *cell = [self.lrcTableView cellForRowAtIndexPath:currentIndexPath];
             
             cell.lrcLabel.progress = currTime / totalTime;
+            
+            NSLog(@"%0.2f",cell.lrcLabel.progress);
         }
     }];
     
-    [self changeLockScreenProgress];
+//    [self changeLockScreenProgress];
 }
 
 - (void)changeLockScreenProgress {
@@ -198,10 +202,9 @@ static NSString *cellid = @"ZMJlrcCellId";
     // 测试一下是不是可以上传
     _currentIndex = 0;
     
-    _lrcSource = [ZMJParser parseLrcWithFileName:@"陈奕迅 - 陪你度过漫长岁月 (国语).lrc"];
-    
-    
-//    [self.view addSubview:self.lrcTableView];
+    _lrcModelSource = [ZMJParser parseLrcWithFileName:@"陈奕迅 - 陪你度过漫长岁月 (国语).lrc"];
+ 
+    [self.view addSubview:self.lrcTableView];
     
     
     self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"陈奕迅 - 陪你度过漫长岁月 (国语).mp3" withExtension:nil] error:nil];
@@ -245,6 +248,8 @@ static NSString *cellid = @"ZMJlrcCellId";
         return MPRemoteCommandHandlerStatusSuccess;
     }];
     
+    
+    
 //    
 //    [[MPRemoteCommandCenter sharedCommandCenter].bookmarkCommand addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent * _Nonnull event) {
 //        return MPRemoteCommandHandlerStatusSuccess;
@@ -254,7 +259,7 @@ static NSString *cellid = @"ZMJlrcCellId";
 
 #pragma mark - table view delegate & data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _lrcSource.count;
+    return _lrcModelSource.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -267,8 +272,10 @@ static NSString *cellid = @"ZMJlrcCellId";
         cell.lrcLabel.progress = 0.0;
         cell.lrcLabel.font = [UIFont systemFontOfSize:16];
     }
-
-    cell.lrcLabel.text = [_lrcSource[indexPath.row] lrcString];
+    
+    ZMJLrcModel *model = _lrcModelSource[indexPath.row];
+    cell.lrcLabel.text = [NSString stringWithFormat:@"%@-%0.2f-%0.2f",model.lrcString,model.lrcGoneTime,model.lrcTime];
+    
     return cell;
 }
 
@@ -306,22 +313,22 @@ static NSString *cellid = @"ZMJlrcCellId";
     NSInteger preIndex = _currentIndex - 1;
     ZMJLrcModel *preModel;
     if (preIndex>=0) {
-        preModel = _lrcSource[preIndex];
-        if (!preModel.lrcString && preIndex>1) {
-            preIndex = _currentIndex - 2;
-            preModel = _lrcSource[preIndex];
-        }
+        preModel = _lrcModelSource[preIndex];
+//        if (!preModel.lrcString && preIndex>1) {
+//            preIndex = _currentIndex - 2;
+//            preModel = _lrcModelSource[preIndex];
+//        }
     }
-    ZMJLrcModel *model = _lrcSource[_currentIndex];
+    ZMJLrcModel *model = _lrcModelSource[_currentIndex];
     
     NSInteger nextIndex = _currentIndex+1;
     ZMJLrcModel *nextModel;
-    if (nextIndex <_lrcSource.count) {
-        nextModel = _lrcSource[nextIndex];
-        if (!nextModel.lrcString && nextIndex+1<_lrcSource.count) {
-            nextIndex = _currentIndex+2;
-            nextModel = _lrcSource[nextIndex];
-        }
+    if (nextIndex <_lrcModelSource.count) {
+        nextModel = _lrcModelSource[nextIndex];
+//        if (!nextModel.lrcString && nextIndex+1<_lrcModelSource.count) {
+//            nextIndex = _currentIndex+2;
+//            nextModel = _lrcModelSource[nextIndex];
+//        }
     }
     
     UIImage *lockImage = [UIImage imageNamed:@"eason.jpg"];

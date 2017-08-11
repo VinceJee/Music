@@ -30,7 +30,8 @@
     
     NSMutableArray *lrcArr = [@[] mutableCopy];
     
-    for (NSString *objStr in allLrcArr) {
+    
+    [allLrcArr enumerateObjectsUsingBlock:^(NSString *objStr, NSUInteger idx, BOOL * _Nonnull stop) {
         
         NSArray *resultArr = [regular matchesInString:objStr options:NSMatchingReportProgress range:NSMakeRange(0, objStr.length)];
         
@@ -39,7 +40,7 @@
         
         NSDateFormatter *formatter = [NSDateFormatter defaultFormatter];
         [formatter setDateFormat:@"[mm:ss.SS]"];
-
+        
         NSDate *zeroDate = [formatter dateFromString:@"[00:00.00]"];
         
         for (NSTextCheckingResult *result in resultArr) {
@@ -49,15 +50,22 @@
             NSDate *timeDate = [formatter dateFromString:timeStr];
             
             NSTimeInterval interval = [timeDate timeIntervalSinceDate:zeroDate];
+
+            
+            if (lrcStr.length==0) {
+                ZMJLrcModel *lastModel = lrcArr.lastObject;
+                lastModel.lrcGoneTime += (interval - lastModel.lrcTime);
+//                [lrcArr setObject:lastModel atIndexedSubscript:[lrcArr indexOfObject:lastModel]];
+                continue;
+            }
             
             ZMJLrcModel *model = [[ZMJLrcModel alloc] init];
             model.lrcTime = interval;
             model.lrcString = lrcStr;
-            
-            [lrcArr addObject:model];
-        }
-        
-    }
+            model.lrcGoneTime = interval;
+            [lrcArr addObject:model]; 
+         }
+    }];
     
     return lrcArr;
 }
