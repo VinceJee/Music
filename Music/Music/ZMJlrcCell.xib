@@ -15,21 +15,19 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nt9-hH-Rgx" id="qjd-8U-2bI">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vH-fz-lff" customClass="ZMJlrcLabel">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                        <rect key="frame" x="166.5" y="11.5" width="42" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="0vH-fz-lff" secondAttribute="bottom" id="EGh-o3-rWs"/>
-                    <constraint firstItem="0vH-fz-lff" firstAttribute="top" secondItem="qjd-8U-2bI" secondAttribute="top" id="qMq-C3-1xG"/>
-                    <constraint firstAttribute="trailing" secondItem="0vH-fz-lff" secondAttribute="trailing" id="rpD-UW-qFO"/>
-                    <constraint firstItem="0vH-fz-lff" firstAttribute="leading" secondItem="qjd-8U-2bI" secondAttribute="leading" id="sZp-Sz-33V"/>
+                    <constraint firstItem="0vH-fz-lff" firstAttribute="centerY" secondItem="qjd-8U-2bI" secondAttribute="centerY" id="OJh-EW-9IY"/>
+                    <constraint firstItem="0vH-fz-lff" firstAttribute="centerX" secondItem="qjd-8U-2bI" secondAttribute="centerX" id="fgN-q9-ZoY"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

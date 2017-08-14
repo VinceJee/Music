@@ -50,19 +50,10 @@
             NSDate *timeDate = [formatter dateFromString:timeStr];
             
             NSTimeInterval interval = [timeDate timeIntervalSinceDate:zeroDate];
-
-            
-            if (lrcStr.length==0) {
-                ZMJLrcModel *lastModel = lrcArr.lastObject;
-                lastModel.lrcGoneTime += (interval - lastModel.lrcTime);
-//                [lrcArr setObject:lastModel atIndexedSubscript:[lrcArr indexOfObject:lastModel]];
-                continue;
-            }
             
             ZMJLrcModel *model = [[ZMJLrcModel alloc] init];
             model.lrcTime = interval;
             model.lrcString = lrcStr;
-            model.lrcGoneTime = interval;
             [lrcArr addObject:model]; 
          }
     }];

@@ -11,8 +11,6 @@
 @interface ZMJLrcModel : NSObject
 
 @property (nonatomic, copy) NSString *lrcString;
-@property (nonatomic, assign) NSTimeInterval lrcTime;
-
-@property (nonatomic, assign) NSTimeInterval lrcGoneTime;
+@property (nonatomic, assign) NSTimeInterval lrcTime; 
 
 @end

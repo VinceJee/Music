@@ -13,9 +13,6 @@
 		0C6B02391F38C30A00003709 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C6B02371F38C30A00003709 /* Main.storyboard */; };
 		0C6B023B1F38C30A00003709 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C6B023A1F38C30A00003709 /* Assets.xcassets */; };
 		0C6B023E1F38C30A00003709 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C6B023C1F38C30A00003709 /* LaunchScreen.storyboard */; };
-		0C6B02461F39F72200003709 /* eason.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C6B02451F39F72200003709 /* eason.jpg */; };
-		0C6B02481F39F72A00003709 /* 陈奕迅 - 陪你度过漫长岁月 (国语).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0C6B02471F39F72A00003709 /* 陈奕迅 - 陪你度过漫长岁月 (国语).mp3 */; };
-		0C6B024A1F39F88300003709 /* 陈奕迅 - 陪你度过漫长岁月 (国语).lrc in Resources */ = {isa = PBXBuildFile; fileRef = 0C6B02491F39F88300003709 /* 陈奕迅 - 陪你度过漫长岁月 (国语).lrc */; };
 		0C6B024D1F39F91A00003709 /* ZMJParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6B024C1F39F91A00003709 /* ZMJParser.m */; };
 		0C6B02501F3B3A1600003709 /* ZMJLrcModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6B024F1F3B3A1600003709 /* ZMJLrcModel.m */; };
 		0C6B02531F3B3A9700003709 /* ZMJlrcViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6B02521F3B3A9700003709 /* ZMJlrcViewModel.m */; };
@@ -23,6 +20,53 @@
 		0C6B02621F3B50E200003709 /* ZMJlrcLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6B02611F3B50E200003709 /* ZMJlrcLabel.m */; };
 		0C6B02651F3B51DB00003709 /* ZMJlrcCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6B02641F3B51DB00003709 /* ZMJlrcCell.m */; };
 		0C6B02671F3B51F700003709 /* ZMJlrcCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C6B02661F3B51F700003709 /* ZMJlrcCell.xib */; };
+		1EA28FFE1F41540800C8C1B8 /* bb@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FCD1F41540800C8C1B8 /* bb@2x.jpg */; };
+		1EA28FFF1F41540800C8C1B8 /* bb_icon@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FCE1F41540800C8C1B8 /* bb_icon@2x.jpg */; };
+		1EA290001F41540800C8C1B8 /* dzq@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FCF1F41540800C8C1B8 /* dzq@2x.jpg */; };
+		1EA290011F41540800C8C1B8 /* dzq_icon@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FD01F41540800C8C1B8 /* dzq_icon@2x.jpg */; };
+		1EA290021F41540800C8C1B8 /* eason.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FD11F41540800C8C1B8 /* eason.jpg */; };
+		1EA290031F41540800C8C1B8 /* eason@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FD21F41540800C8C1B8 /* eason@2x.jpg */; };
+		1EA290041F41540800C8C1B8 /* eason_icon@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FD31F41540800C8C1B8 /* eason_icon@2x.jpg */; };
+		1EA290051F41540800C8C1B8 /* jay@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FD41F41540800C8C1B8 /* jay@2x.jpg */; };
+		1EA290061F41540800C8C1B8 /* jay_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FD51F41540800C8C1B8 /* jay_icon@2x.png */; };
+		1EA290071F41540800C8C1B8 /* jj@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FD61F41540800C8C1B8 /* jj@2x.jpg */; };
+		1EA290081F41540800C8C1B8 /* jj_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FD71F41540800C8C1B8 /* jj_icon@2x.png */; };
+		1EA290091F41540800C8C1B8 /* kzxd@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FD81F41540800C8C1B8 /* kzxd@2x.jpg */; };
+		1EA2900A1F41540800C8C1B8 /* kzxd_icon@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FD91F41540800C8C1B8 /* kzxd_icon@2x.jpg */; };
+		1EA2900B1F41540800C8C1B8 /* lkq@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FDA1F41540800C8C1B8 /* lkq@2x.jpg */; };
+		1EA2900C1F41540800C8C1B8 /* lkq_icon@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FDB1F41540800C8C1B8 /* lkq_icon@2x.jpg */; };
+		1EA2900D1F41540800C8C1B8 /* nanquan@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FDC1F41540800C8C1B8 /* nanquan@2x.jpg */; };
+		1EA2900E1F41540800C8C1B8 /* nanquan_icon@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FDD1F41540800C8C1B8 /* nanquan_icon@2x.jpg */; };
+		1EA2900F1F41540800C8C1B8 /* wf@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FDE1F41540800C8C1B8 /* wf@2x.jpg */; };
+		1EA290101F41540800C8C1B8 /* wf_icon@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FDF1F41540800C8C1B8 /* wf_icon@2x.jpg */; };
+		1EA290111F41540800C8C1B8 /* zxy@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FE01F41540800C8C1B8 /* zxy@2x.jpg */; };
+		1EA290121F41540800C8C1B8 /* zxy_icon@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FE11F41540800C8C1B8 /* zxy_icon@2x.jpg */; };
+		1EA290131F41540800C8C1B8 /* 10405520.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FE31F41540800C8C1B8 /* 10405520.lrc */; };
+		1EA290141F41540800C8C1B8 /* 10736444.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FE41F41540800C8C1B8 /* 10736444.lrc */; };
+		1EA290151F41540800C8C1B8 /* 120125029.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FE51F41540800C8C1B8 /* 120125029.lrc */; };
+		1EA290161F41540800C8C1B8 /* 12309111.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FE61F41540800C8C1B8 /* 12309111.lrc */; };
+		1EA290171F41540800C8C1B8 /* 14945107.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FE71F41540800C8C1B8 /* 14945107.lrc */; };
+		1EA290181F41540800C8C1B8 /* 235319.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FE81F41540800C8C1B8 /* 235319.lrc */; };
+		1EA290191F41540800C8C1B8 /* 255319.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FE91F41540800C8C1B8 /* 255319.lrc */; };
+		1EA2901A1F41540800C8C1B8 /* 309769.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FEA1F41540800C8C1B8 /* 309769.lrc */; };
+		1EA2901B1F41540800C8C1B8 /* 339744.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FEB1F41540800C8C1B8 /* 339744.lrc */; };
+		1EA2901C1F41540800C8C1B8 /* 多幸运.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FEC1F41540800C8C1B8 /* 多幸运.txt */; };
+		1EA2901D1F41540800C8C1B8 /* 月半小夜曲.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FED1F41540800C8C1B8 /* 月半小夜曲.lrc */; };
+		1EA2901E1F41540800C8C1B8 /* 父亲.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FEE1F41540800C8C1B8 /* 父亲.txt */; };
+		1EA2901F1F41540800C8C1B8 /* 陈奕迅 - 陪你度过漫长岁月 (国语).lrc in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FEF1F41540800C8C1B8 /* 陈奕迅 - 陪你度过漫长岁月 (国语).lrc */; };
+		1EA290201F41540800C8C1B8 /* 10405520.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FF11F41540800C8C1B8 /* 10405520.mp3 */; };
+		1EA290211F41540800C8C1B8 /* 10736444.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FF21F41540800C8C1B8 /* 10736444.mp3 */; };
+		1EA290221F41540800C8C1B8 /* 1201111234.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FF31F41540800C8C1B8 /* 1201111234.mp3 */; };
+		1EA290231F41540800C8C1B8 /* 120125029.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FF41F41540800C8C1B8 /* 120125029.mp3 */; };
+		1EA290241F41540800C8C1B8 /* 12309111.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FF51F41540800C8C1B8 /* 12309111.mp3 */; };
+		1EA290251F41540800C8C1B8 /* 14945107.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FF61F41540800C8C1B8 /* 14945107.mp3 */; };
+		1EA290261F41540800C8C1B8 /* 235319.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FF71F41540800C8C1B8 /* 235319.mp3 */; };
+		1EA290271F41540800C8C1B8 /* 255319.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FF81F41540800C8C1B8 /* 255319.mp3 */; };
+		1EA290281F41540800C8C1B8 /* 309769.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FF91F41540800C8C1B8 /* 309769.mp3 */; };
+		1EA290291F41540800C8C1B8 /* 339744.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FFA1F41540800C8C1B8 /* 339744.mp3 */; };
+		1EA2902A1F41540800C8C1B8 /* 多幸运.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FFB1F41540800C8C1B8 /* 多幸运.mp3 */; };
+		1EA2902B1F41540800C8C1B8 /* 父亲.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FFC1F41540800C8C1B8 /* 父亲.mp3 */; };
+		1EA2902C1F41540800C8C1B8 /* 陈奕迅 - 陪你度过漫长岁月 (国语).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FFD1F41540800C8C1B8 /* 陈奕迅 - 陪你度过漫长岁月 (国语).mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,9 +80,6 @@
 		0C6B023A1F38C30A00003709 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0C6B023D1F38C30A00003709 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0C6B023F1F38C30A00003709 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0C6B02451F39F72200003709 /* eason.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = eason.jpg; sourceTree = "<group>"; };
-		0C6B02471F39F72A00003709 /* 陈奕迅 - 陪你度过漫长岁月 (国语).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "陈奕迅 - 陪你度过漫长岁月 (国语).mp3"; sourceTree = "<group>"; };
-		0C6B02491F39F88300003709 /* 陈奕迅 - 陪你度过漫长岁月 (国语).lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "陈奕迅 - 陪你度过漫长岁月 (国语).lrc"; sourceTree = "<group>"; };
 		0C6B024B1F39F91A00003709 /* ZMJParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMJParser.h; sourceTree = "<group>"; };
 		0C6B024C1F39F91A00003709 /* ZMJParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMJParser.m; sourceTree = "<group>"; };
 		0C6B024E1F3B3A1600003709 /* ZMJLrcModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMJLrcModel.h; sourceTree = "<group>"; };
@@ -52,6 +93,53 @@
 		0C6B02631F3B51DB00003709 /* ZMJlrcCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMJlrcCell.h; sourceTree = "<group>"; };
 		0C6B02641F3B51DB00003709 /* ZMJlrcCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMJlrcCell.m; sourceTree = "<group>"; };
 		0C6B02661F3B51F700003709 /* ZMJlrcCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZMJlrcCell.xib; sourceTree = "<group>"; };
+		1EA28FCD1F41540800C8C1B8 /* bb@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bb@2x.jpg"; sourceTree = "<group>"; };
+		1EA28FCE1F41540800C8C1B8 /* bb_icon@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bb_icon@2x.jpg"; sourceTree = "<group>"; };
+		1EA28FCF1F41540800C8C1B8 /* dzq@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "dzq@2x.jpg"; sourceTree = "<group>"; };
+		1EA28FD01F41540800C8C1B8 /* dzq_icon@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "dzq_icon@2x.jpg"; sourceTree = "<group>"; };
+		1EA28FD11F41540800C8C1B8 /* eason.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = eason.jpg; sourceTree = "<group>"; };
+		1EA28FD21F41540800C8C1B8 /* eason@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "eason@2x.jpg"; sourceTree = "<group>"; };
+		1EA28FD31F41540800C8C1B8 /* eason_icon@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "eason_icon@2x.jpg"; sourceTree = "<group>"; };
+		1EA28FD41F41540800C8C1B8 /* jay@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "jay@2x.jpg"; sourceTree = "<group>"; };
+		1EA28FD51F41540800C8C1B8 /* jay_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jay_icon@2x.png"; sourceTree = "<group>"; };
+		1EA28FD61F41540800C8C1B8 /* jj@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "jj@2x.jpg"; sourceTree = "<group>"; };
+		1EA28FD71F41540800C8C1B8 /* jj_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jj_icon@2x.png"; sourceTree = "<group>"; };
+		1EA28FD81F41540800C8C1B8 /* kzxd@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "kzxd@2x.jpg"; sourceTree = "<group>"; };
+		1EA28FD91F41540800C8C1B8 /* kzxd_icon@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "kzxd_icon@2x.jpg"; sourceTree = "<group>"; };
+		1EA28FDA1F41540800C8C1B8 /* lkq@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "lkq@2x.jpg"; sourceTree = "<group>"; };
+		1EA28FDB1F41540800C8C1B8 /* lkq_icon@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "lkq_icon@2x.jpg"; sourceTree = "<group>"; };
+		1EA28FDC1F41540800C8C1B8 /* nanquan@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "nanquan@2x.jpg"; sourceTree = "<group>"; };
+		1EA28FDD1F41540800C8C1B8 /* nanquan_icon@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "nanquan_icon@2x.jpg"; sourceTree = "<group>"; };
+		1EA28FDE1F41540800C8C1B8 /* wf@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "wf@2x.jpg"; sourceTree = "<group>"; };
+		1EA28FDF1F41540800C8C1B8 /* wf_icon@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "wf_icon@2x.jpg"; sourceTree = "<group>"; };
+		1EA28FE01F41540800C8C1B8 /* zxy@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "zxy@2x.jpg"; sourceTree = "<group>"; };
+		1EA28FE11F41540800C8C1B8 /* zxy_icon@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "zxy_icon@2x.jpg"; sourceTree = "<group>"; };
+		1EA28FE31F41540800C8C1B8 /* 10405520.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 10405520.lrc; sourceTree = "<group>"; };
+		1EA28FE41F41540800C8C1B8 /* 10736444.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 10736444.lrc; sourceTree = "<group>"; };
+		1EA28FE51F41540800C8C1B8 /* 120125029.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 120125029.lrc; sourceTree = "<group>"; };
+		1EA28FE61F41540800C8C1B8 /* 12309111.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 12309111.lrc; sourceTree = "<group>"; };
+		1EA28FE71F41540800C8C1B8 /* 14945107.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 14945107.lrc; sourceTree = "<group>"; };
+		1EA28FE81F41540800C8C1B8 /* 235319.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 235319.lrc; sourceTree = "<group>"; };
+		1EA28FE91F41540800C8C1B8 /* 255319.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 255319.lrc; sourceTree = "<group>"; };
+		1EA28FEA1F41540800C8C1B8 /* 309769.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 309769.lrc; sourceTree = "<group>"; };
+		1EA28FEB1F41540800C8C1B8 /* 339744.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 339744.lrc; sourceTree = "<group>"; };
+		1EA28FEC1F41540800C8C1B8 /* 多幸运.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "多幸运.txt"; sourceTree = "<group>"; };
+		1EA28FED1F41540800C8C1B8 /* 月半小夜曲.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "月半小夜曲.lrc"; sourceTree = "<group>"; };
+		1EA28FEE1F41540800C8C1B8 /* 父亲.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "父亲.txt"; sourceTree = "<group>"; };
+		1EA28FEF1F41540800C8C1B8 /* 陈奕迅 - 陪你度过漫长岁月 (国语).lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "陈奕迅 - 陪你度过漫长岁月 (国语).lrc"; sourceTree = "<group>"; };
+		1EA28FF11F41540800C8C1B8 /* 10405520.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 10405520.mp3; sourceTree = "<group>"; };
+		1EA28FF21F41540800C8C1B8 /* 10736444.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 10736444.mp3; sourceTree = "<group>"; };
+		1EA28FF31F41540800C8C1B8 /* 1201111234.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1201111234.mp3; sourceTree = "<group>"; };
+		1EA28FF41F41540800C8C1B8 /* 120125029.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 120125029.mp3; sourceTree = "<group>"; };
+		1EA28FF51F41540800C8C1B8 /* 12309111.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 12309111.mp3; sourceTree = "<group>"; };
+		1EA28FF61F41540800C8C1B8 /* 14945107.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 14945107.mp3; sourceTree = "<group>"; };
+		1EA28FF71F41540800C8C1B8 /* 235319.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 235319.mp3; sourceTree = "<group>"; };
+		1EA28FF81F41540800C8C1B8 /* 255319.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 255319.mp3; sourceTree = "<group>"; };
+		1EA28FF91F41540800C8C1B8 /* 309769.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 309769.mp3; sourceTree = "<group>"; };
+		1EA28FFA1F41540800C8C1B8 /* 339744.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 339744.mp3; sourceTree = "<group>"; };
+		1EA28FFB1F41540800C8C1B8 /* 多幸运.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "多幸运.mp3"; sourceTree = "<group>"; };
+		1EA28FFC1F41540800C8C1B8 /* 父亲.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "父亲.mp3"; sourceTree = "<group>"; };
+		1EA28FFD1F41540800C8C1B8 /* 陈奕迅 - 陪你度过漫长岁月 (国语).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "陈奕迅 - 陪你度过漫长岁月 (国语).mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,9 +189,9 @@
 				0C6B02661F3B51F700003709 /* ZMJlrcCell.xib */,
 				0C6B025D1F3B459C00003709 /* NSDateFormatter+Convenience.h */,
 				0C6B025E1F3B459C00003709 /* NSDateFormatter+Convenience.m */,
-				0C6B02491F39F88300003709 /* 陈奕迅 - 陪你度过漫长岁月 (国语).lrc */,
-				0C6B02471F39F72A00003709 /* 陈奕迅 - 陪你度过漫长岁月 (国语).mp3 */,
-				0C6B02451F39F72200003709 /* eason.jpg */,
+				1EA28FCC1F41540800C8C1B8 /* Images */,
+				1EA28FE21F41540800C8C1B8 /* Lrcs */,
+				1EA28FF01F41540800C8C1B8 /* MP3s */,
 				0C6B02371F38C30A00003709 /* Main.storyboard */,
 				0C6B023A1F38C30A00003709 /* Assets.xcassets */,
 				0C6B023C1F38C30A00003709 /* LaunchScreen.storyboard */,
@@ -119,6 +207,74 @@
 				0C6B022F1F38C30A00003709 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1EA28FCC1F41540800C8C1B8 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				1EA28FCD1F41540800C8C1B8 /* bb@2x.jpg */,
+				1EA28FCE1F41540800C8C1B8 /* bb_icon@2x.jpg */,
+				1EA28FCF1F41540800C8C1B8 /* dzq@2x.jpg */,
+				1EA28FD01F41540800C8C1B8 /* dzq_icon@2x.jpg */,
+				1EA28FD11F41540800C8C1B8 /* eason.jpg */,
+				1EA28FD21F41540800C8C1B8 /* eason@2x.jpg */,
+				1EA28FD31F41540800C8C1B8 /* eason_icon@2x.jpg */,
+				1EA28FD41F41540800C8C1B8 /* jay@2x.jpg */,
+				1EA28FD51F41540800C8C1B8 /* jay_icon@2x.png */,
+				1EA28FD61F41540800C8C1B8 /* jj@2x.jpg */,
+				1EA28FD71F41540800C8C1B8 /* jj_icon@2x.png */,
+				1EA28FD81F41540800C8C1B8 /* kzxd@2x.jpg */,
+				1EA28FD91F41540800C8C1B8 /* kzxd_icon@2x.jpg */,
+				1EA28FDA1F41540800C8C1B8 /* lkq@2x.jpg */,
+				1EA28FDB1F41540800C8C1B8 /* lkq_icon@2x.jpg */,
+				1EA28FDC1F41540800C8C1B8 /* nanquan@2x.jpg */,
+				1EA28FDD1F41540800C8C1B8 /* nanquan_icon@2x.jpg */,
+				1EA28FDE1F41540800C8C1B8 /* wf@2x.jpg */,
+				1EA28FDF1F41540800C8C1B8 /* wf_icon@2x.jpg */,
+				1EA28FE01F41540800C8C1B8 /* zxy@2x.jpg */,
+				1EA28FE11F41540800C8C1B8 /* zxy_icon@2x.jpg */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		1EA28FE21F41540800C8C1B8 /* Lrcs */ = {
+			isa = PBXGroup;
+			children = (
+				1EA28FE31F41540800C8C1B8 /* 10405520.lrc */,
+				1EA28FE41F41540800C8C1B8 /* 10736444.lrc */,
+				1EA28FE51F41540800C8C1B8 /* 120125029.lrc */,
+				1EA28FE61F41540800C8C1B8 /* 12309111.lrc */,
+				1EA28FE71F41540800C8C1B8 /* 14945107.lrc */,
+				1EA28FE81F41540800C8C1B8 /* 235319.lrc */,
+				1EA28FE91F41540800C8C1B8 /* 255319.lrc */,
+				1EA28FEA1F41540800C8C1B8 /* 309769.lrc */,
+				1EA28FEB1F41540800C8C1B8 /* 339744.lrc */,
+				1EA28FEC1F41540800C8C1B8 /* 多幸运.txt */,
+				1EA28FED1F41540800C8C1B8 /* 月半小夜曲.lrc */,
+				1EA28FEE1F41540800C8C1B8 /* 父亲.txt */,
+				1EA28FEF1F41540800C8C1B8 /* 陈奕迅 - 陪你度过漫长岁月 (国语).lrc */,
+			);
+			path = Lrcs;
+			sourceTree = "<group>";
+		};
+		1EA28FF01F41540800C8C1B8 /* MP3s */ = {
+			isa = PBXGroup;
+			children = (
+				1EA28FF11F41540800C8C1B8 /* 10405520.mp3 */,
+				1EA28FF21F41540800C8C1B8 /* 10736444.mp3 */,
+				1EA28FF31F41540800C8C1B8 /* 1201111234.mp3 */,
+				1EA28FF41F41540800C8C1B8 /* 120125029.mp3 */,
+				1EA28FF51F41540800C8C1B8 /* 12309111.mp3 */,
+				1EA28FF61F41540800C8C1B8 /* 14945107.mp3 */,
+				1EA28FF71F41540800C8C1B8 /* 235319.mp3 */,
+				1EA28FF81F41540800C8C1B8 /* 255319.mp3 */,
+				1EA28FF91F41540800C8C1B8 /* 309769.mp3 */,
+				1EA28FFA1F41540800C8C1B8 /* 339744.mp3 */,
+				1EA28FFB1F41540800C8C1B8 /* 多幸运.mp3 */,
+				1EA28FFC1F41540800C8C1B8 /* 父亲.mp3 */,
+				1EA28FFD1F41540800C8C1B8 /* 陈奕迅 - 陪你度过漫长岁月 (国语).mp3 */,
+			);
+			path = MP3s;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,13 +341,57 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C6B024A1F39F88300003709 /* 陈奕迅 - 陪你度过漫长岁月 (国语).lrc in Resources */,
+				1EA290181F41540800C8C1B8 /* 235319.lrc in Resources */,
+				1EA290031F41540800C8C1B8 /* eason@2x.jpg in Resources */,
+				1EA2900E1F41540800C8C1B8 /* nanquan_icon@2x.jpg in Resources */,
+				1EA290011F41540800C8C1B8 /* dzq_icon@2x.jpg in Resources */,
+				1EA2900C1F41540800C8C1B8 /* lkq_icon@2x.jpg in Resources */,
 				0C6B02671F3B51F700003709 /* ZMJlrcCell.xib in Resources */,
+				1EA290131F41540800C8C1B8 /* 10405520.lrc in Resources */,
+				1EA2901C1F41540800C8C1B8 /* 多幸运.txt in Resources */,
 				0C6B023E1F38C30A00003709 /* LaunchScreen.storyboard in Resources */,
 				0C6B023B1F38C30A00003709 /* Assets.xcassets in Resources */,
-				0C6B02461F39F72200003709 /* eason.jpg in Resources */,
-				0C6B02481F39F72A00003709 /* 陈奕迅 - 陪你度过漫长岁月 (国语).mp3 in Resources */,
+				1EA2901A1F41540800C8C1B8 /* 309769.lrc in Resources */,
+				1EA2902B1F41540800C8C1B8 /* 父亲.mp3 in Resources */,
+				1EA290001F41540800C8C1B8 /* dzq@2x.jpg in Resources */,
+				1EA290081F41540800C8C1B8 /* jj_icon@2x.png in Resources */,
+				1EA290101F41540800C8C1B8 /* wf_icon@2x.jpg in Resources */,
+				1EA290191F41540800C8C1B8 /* 255319.lrc in Resources */,
+				1EA290271F41540800C8C1B8 /* 255319.mp3 in Resources */,
+				1EA290171F41540800C8C1B8 /* 14945107.lrc in Resources */,
+				1EA290141F41540800C8C1B8 /* 10736444.lrc in Resources */,
+				1EA290091F41540800C8C1B8 /* kzxd@2x.jpg in Resources */,
+				1EA28FFE1F41540800C8C1B8 /* bb@2x.jpg in Resources */,
+				1EA2902A1F41540800C8C1B8 /* 多幸运.mp3 in Resources */,
+				1EA2900F1F41540800C8C1B8 /* wf@2x.jpg in Resources */,
+				1EA290281F41540800C8C1B8 /* 309769.mp3 in Resources */,
+				1EA290241F41540800C8C1B8 /* 12309111.mp3 in Resources */,
+				1EA290201F41540800C8C1B8 /* 10405520.mp3 in Resources */,
+				1EA290061F41540800C8C1B8 /* jay_icon@2x.png in Resources */,
+				1EA290231F41540800C8C1B8 /* 120125029.mp3 in Resources */,
+				1EA290041F41540800C8C1B8 /* eason_icon@2x.jpg in Resources */,
+				1EA290221F41540800C8C1B8 /* 1201111234.mp3 in Resources */,
+				1EA2901D1F41540800C8C1B8 /* 月半小夜曲.lrc in Resources */,
 				0C6B02391F38C30A00003709 /* Main.storyboard in Resources */,
+				1EA290111F41540800C8C1B8 /* zxy@2x.jpg in Resources */,
+				1EA290211F41540800C8C1B8 /* 10736444.mp3 in Resources */,
+				1EA2901F1F41540800C8C1B8 /* 陈奕迅 - 陪你度过漫长岁月 (国语).lrc in Resources */,
+				1EA290071F41540800C8C1B8 /* jj@2x.jpg in Resources */,
+				1EA290161F41540800C8C1B8 /* 12309111.lrc in Resources */,
+				1EA290251F41540800C8C1B8 /* 14945107.mp3 in Resources */,
+				1EA2901E1F41540800C8C1B8 /* 父亲.txt in Resources */,
+				1EA2900A1F41540800C8C1B8 /* kzxd_icon@2x.jpg in Resources */,
+				1EA28FFF1F41540800C8C1B8 /* bb_icon@2x.jpg in Resources */,
+				1EA290261F41540800C8C1B8 /* 235319.mp3 in Resources */,
+				1EA290151F41540800C8C1B8 /* 120125029.lrc in Resources */,
+				1EA290021F41540800C8C1B8 /* eason.jpg in Resources */,
+				1EA290121F41540800C8C1B8 /* zxy_icon@2x.jpg in Resources */,
+				1EA2901B1F41540800C8C1B8 /* 339744.lrc in Resources */,
+				1EA2900B1F41540800C8C1B8 /* lkq@2x.jpg in Resources */,
+				1EA290291F41540800C8C1B8 /* 339744.mp3 in Resources */,
+				1EA290051F41540800C8C1B8 /* jay@2x.jpg in Resources */,
+				1EA2900D1F41540800C8C1B8 /* nanquan@2x.jpg in Resources */,
+				1EA2902C1F41540800C8C1B8 /* 陈奕迅 - 陪你度过漫长岁月 (国语).mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,7 +532,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = F8DD88GNB8;
 				INFOPLIST_FILE = Music/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.launch.zhu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -346,7 +546,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = F8DD88GNB8;
 				INFOPLIST_FILE = Music/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.launch.zhu;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -9,7 +9,6 @@
 #import "ViewController.h"
 
 #import <AVFoundation/AVFoundation.h>
-
 #import <MediaPlayer/MediaPlayer.h>
 
 #import "ZMJParser.h"
@@ -18,15 +17,17 @@
 
 static NSString *cellid = @"ZMJlrcCellId";
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource,AVAudioPlayerDelegate> {
+    
     NSArray *_lrcModelSource;
+    
     CADisplayLink *_displayLink;
+    
     __weak IBOutlet UISlider *progressSlider;
     
     NSInteger _currentIndex;
 }
 
 @property (nonatomic, strong) AVAudioPlayer *player;
-
 @property (nonatomic, strong) UITableView *lrcTableView;
 
 @end
@@ -43,7 +44,7 @@ static NSString *cellid = @"ZMJlrcCellId";
         _lrcTableView.delegate = self;
         _lrcTableView.dataSource = self;
         
-        _lrcTableView.rowHeight = 44;
+        _lrcTableView.rowHeight = 30;
         _lrcTableView.separatorColor = [UIColor clearColor];
         
         [_lrcTableView registerNib:[UINib nibWithNibName:@"ZMJlrcCell" bundle:nil] forCellReuseIdentifier:cellid];
@@ -51,12 +52,17 @@ static NSString *cellid = @"ZMJlrcCellId";
             UIView *footer = [UIView new];
             footer;
         });
+        
+        _lrcTableView.center = CGPointMake(self.view.bounds.size.width * 0.5, self.view.bounds.size.height * 0.5);
+        _lrcTableView.contentInset = UIEdgeInsetsMake(self.view.bounds.size.height * 0.3, 0, 0, 0);
     }
     return _lrcTableView;
 }
 
 - (void)updateLrc {
     progressSlider.value = self.player.currentTime/self.player.duration;
+
+//    for (NSInteger idx=0; idx<_lrcModelSource.count; idx++) 
     
     [_lrcModelSource enumerateObjectsUsingBlock:^(ZMJLrcModel *model, NSUInteger idx, BOOL * _Nonnull stop) {
         
@@ -68,34 +74,28 @@ static NSString *cellid = @"ZMJlrcCellId";
         }
         
         if (_currentIndex != idx && self.player.currentTime >= model.lrcTime && self.player.currentTime <modelNext.lrcTime) {
-
-//            NSIndexPath *curIndexPath = [NSIndexPath indexPathForRow:idx inSection:0];
             
-//            NSIndexPath *preIndexPath = [NSIndexPath indexPathForRow:_currentIndex inSection:0];
-            
-            [self.lrcTableView setContentOffset:CGPointMake(0, self.lrcTableView.rowHeight *_currentIndex) animated:YES];
-            
-//            [self.lrcTableView scrollToRowAtIndexPath:curIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
-            
-//            [self.lrcTableView reloadRowsAtIndexPaths:@[preIndexPath] withRowAnimation:UITableViewRowAnimationNone];
-            
-//            [self.lrcTableView reloadRowsAtIndexPaths:@[curIndexPath] withRowAnimation:UITableViewRowAnimationNone];
+            NSIndexPath *preIndexPath = [NSIndexPath indexPathForRow:_currentIndex inSection:0];
             
             _currentIndex = idx;
+            
+            NSIndexPath *curIndexPath = [NSIndexPath indexPathForRow:idx inSection:0];
+            
+            [self.lrcTableView reloadRowsAtIndexPaths:@[preIndexPath,curIndexPath] withRowAnimation:UITableViewRowAnimationNone];
+            
+            [self.lrcTableView scrollToRowAtIndexPath:curIndexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
         }
         
         if (_currentIndex == idx) {
             
-            CGFloat totalTime = modelNext.lrcTime - model.lrcGoneTime;
+            CGFloat totalTime = modelNext.lrcTime - model.lrcTime;
             CGFloat currTime = self.player.currentTime - model.lrcTime;
             
             NSIndexPath *currentIndexPath = [NSIndexPath indexPathForRow:idx inSection:0];
-
+            
             ZMJlrcCell *cell = [self.lrcTableView cellForRowAtIndexPath:currentIndexPath];
             
             cell.lrcLabel.progress = currTime / totalTime;
-            
-            NSLog(@"%0.2f",cell.lrcLabel.progress);
         }
     }];
     
@@ -106,7 +106,8 @@ static NSString *cellid = @"ZMJlrcCellId";
     
     MPNowPlayingInfoCenter *infoCenter = [MPNowPlayingInfoCenter defaultCenter];
     
-    UIImage *image = [self updateLockScreenLrc];//[UIImage imageNamed:@"eason.jpg"];
+    UIImage *image = [self updateLockScreenLrc];
+    
     MPMediaItemArtwork *artwork = [[MPMediaItemArtwork alloc] initWithBoundsSize:image.size requestHandler:^UIImage * _Nonnull(CGSize size) {
         return image;
     }];
@@ -249,7 +250,6 @@ static NSString *cellid = @"ZMJlrcCellId";
     }];
     
     
-    
 //    
 //    [[MPRemoteCommandCenter sharedCommandCenter].bookmarkCommand addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent * _Nonnull event) {
 //        return MPRemoteCommandHandlerStatusSuccess;
@@ -266,15 +266,15 @@ static NSString *cellid = @"ZMJlrcCellId";
     
     ZMJlrcCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid forIndexPath:indexPath];
     
-    if (_currentIndex == indexPath.row) {
+    if (indexPath.row == _currentIndex) {
         cell.lrcLabel.font = [UIFont systemFontOfSize:20];
     } else {
-        cell.lrcLabel.progress = 0.0;
         cell.lrcLabel.font = [UIFont systemFontOfSize:16];
+        cell.lrcLabel.progress = 0.0;
     }
     
     ZMJLrcModel *model = _lrcModelSource[indexPath.row];
-    cell.lrcLabel.text = [NSString stringWithFormat:@"%@-%0.2f-%0.2f",model.lrcString,model.lrcGoneTime,model.lrcTime];
+    cell.lrcLabel.text = model.lrcString;
     
     return cell;
 }
@@ -314,10 +314,10 @@ static NSString *cellid = @"ZMJlrcCellId";
     ZMJLrcModel *preModel;
     if (preIndex>=0) {
         preModel = _lrcModelSource[preIndex];
-//        if (!preModel.lrcString && preIndex>1) {
-//            preIndex = _currentIndex - 2;
-//            preModel = _lrcModelSource[preIndex];
-//        }
+        if (!preModel.lrcString && preIndex>1) {
+            preIndex = _currentIndex - 2;
+            preModel = _lrcModelSource[preIndex];
+        }
     }
     ZMJLrcModel *model = _lrcModelSource[_currentIndex];
     
@@ -325,10 +325,10 @@ static NSString *cellid = @"ZMJlrcCellId";
     ZMJLrcModel *nextModel;
     if (nextIndex <_lrcModelSource.count) {
         nextModel = _lrcModelSource[nextIndex];
-//        if (!nextModel.lrcString && nextIndex+1<_lrcModelSource.count) {
-//            nextIndex = _currentIndex+2;
-//            nextModel = _lrcModelSource[nextIndex];
-//        }
+        if (!nextModel.lrcString && nextIndex+1<_lrcModelSource.count) {
+            nextIndex = _currentIndex+2;
+            nextModel = _lrcModelSource[nextIndex];
+        }
     }
     
     UIImage *lockImage = [UIImage imageNamed:@"eason.jpg"];
