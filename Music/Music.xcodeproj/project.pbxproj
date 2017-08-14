@@ -67,6 +67,7 @@
 		1EA2902A1F41540800C8C1B8 /* 多幸运.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FFB1F41540800C8C1B8 /* 多幸运.mp3 */; };
 		1EA2902B1F41540800C8C1B8 /* 父亲.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FFC1F41540800C8C1B8 /* 父亲.mp3 */; };
 		1EA2902C1F41540800C8C1B8 /* 陈奕迅 - 陪你度过漫长岁月 (国语).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FFD1F41540800C8C1B8 /* 陈奕迅 - 陪你度过漫长岁月 (国语).mp3 */; };
+		1EA290381F41C5E400C8C1B8 /* app转让开发者账号.mov in Resources */ = {isa = PBXBuildFile; fileRef = 1EA290371F41C5E400C8C1B8 /* app转让开发者账号.mov */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -140,6 +141,7 @@
 		1EA28FFB1F41540800C8C1B8 /* 多幸运.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "多幸运.mp3"; sourceTree = "<group>"; };
 		1EA28FFC1F41540800C8C1B8 /* 父亲.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "父亲.mp3"; sourceTree = "<group>"; };
 		1EA28FFD1F41540800C8C1B8 /* 陈奕迅 - 陪你度过漫长岁月 (国语).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "陈奕迅 - 陪你度过漫长岁月 (国语).mp3"; sourceTree = "<group>"; };
+		1EA290371F41C5E400C8C1B8 /* app转让开发者账号.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "app转让开发者账号.mov"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 				0C6B02631F3B51DB00003709 /* ZMJlrcCell.h */,
 				0C6B02641F3B51DB00003709 /* ZMJlrcCell.m */,
 				0C6B02661F3B51F700003709 /* ZMJlrcCell.xib */,
+				1EA290371F41C5E400C8C1B8 /* app转让开发者账号.mov */,
 				0C6B025D1F3B459C00003709 /* NSDateFormatter+Convenience.h */,
 				0C6B025E1F3B459C00003709 /* NSDateFormatter+Convenience.m */,
 				1EA28FCC1F41540800C8C1B8 /* Images */,
@@ -372,6 +375,7 @@
 				1EA290041F41540800C8C1B8 /* eason_icon@2x.jpg in Resources */,
 				1EA290221F41540800C8C1B8 /* 1201111234.mp3 in Resources */,
 				1EA2901D1F41540800C8C1B8 /* 月半小夜曲.lrc in Resources */,
+				1EA290381F41C5E400C8C1B8 /* app转让开发者账号.mov in Resources */,
 				0C6B02391F38C30A00003709 /* Main.storyboard in Resources */,
 				1EA290111F41540800C8C1B8 /* zxy@2x.jpg in Resources */,
 				1EA290211F41540800C8C1B8 /* 10736444.mp3 in Resources */,

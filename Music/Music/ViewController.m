@@ -10,6 +10,7 @@
 
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import <AVKit/AVKit.h>
 
 #import "ZMJParser.h"
 #import "ZMJLrcModel.h"
@@ -61,8 +62,6 @@ static NSString *cellid = @"ZMJlrcCellId";
 
 - (void)updateLrc {
     progressSlider.value = self.player.currentTime/self.player.duration;
-
-//    for (NSInteger idx=0; idx<_lrcModelSource.count; idx++) 
     
     [_lrcModelSource enumerateObjectsUsingBlock:^(ZMJLrcModel *model, NSUInteger idx, BOOL * _Nonnull stop) {
         
@@ -187,11 +186,46 @@ static NSString *cellid = @"ZMJlrcCellId";
     [self.view addSubview:imagev];
 }
 
+- (void)testMoviePlayer1 {
+    
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"app转让开发者账号" withExtension:@".mov"];
+    AVPlayerItem *item = [AVPlayerItem playerItemWithURL:url];
+    
+    AVPlayer *moviePlayer = [AVPlayer playerWithPlayerItem:item];
+    
+    AVPlayerLayer *layer = [AVPlayerLayer playerLayerWithPlayer:moviePlayer];
+    layer.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height * 9 / 16);
+    
+    [self.view.layer addSublayer:layer];
+    
+    [moviePlayer play];
+    
+}
+
+- (void)testMoviePlayer {
+    
+    AVPlayerViewController *playerVC = [[AVPlayerViewController alloc] init];
+    playerVC.view.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height * 9 / 16);
+    playerVC.showsPlaybackControls = YES;
+    
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"app转让开发者账号" withExtension:@".mov"];
+    
+    AVPlayer *moviePlayer = [AVPlayer playerWithURL:url];
+    
+    playerVC.player = moviePlayer;
+    
+    [self.view addSubview:playerVC.view];
+    
+    [playerVC.player play];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    [self start];
+//    [self testMoviePlayer];
+    
+//    [self start];
     
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidBecomeActive) name:UIApplicationDidBecomeActiveNotification object:nil];
 
@@ -205,7 +239,7 @@ static NSString *cellid = @"ZMJlrcCellId";
     
     _lrcModelSource = [ZMJParser parseLrcWithFileName:@"陈奕迅 - 陪你度过漫长岁月 (国语).lrc"];
  
-    [self.view addSubview:self.lrcTableView];
+//    [self.view addSubview:self.lrcTableView];
     
     
     self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"陈奕迅 - 陪你度过漫长岁月 (国语).mp3" withExtension:nil] error:nil];
@@ -213,7 +247,7 @@ static NSString *cellid = @"ZMJlrcCellId";
     self.player.delegate = self;
     //    [self.player playAtTime:20];
     [self.player prepareToPlay];
-    [self.player play];
+//    [self.player play];
 //    self.player.meteringEnabled = YES;
 //    self.player.numberOfLoops = -1;
     
