@@ -20,6 +20,8 @@
 		0C6B02621F3B50E200003709 /* ZMJlrcLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6B02611F3B50E200003709 /* ZMJlrcLabel.m */; };
 		0C6B02651F3B51DB00003709 /* ZMJlrcCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6B02641F3B51DB00003709 /* ZMJlrcCell.m */; };
 		0C6B02671F3B51F700003709 /* ZMJlrcCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C6B02661F3B51F700003709 /* ZMJlrcCell.xib */; };
+		1E79C6EB1F429CB100589A13 /* ZMJLrcView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E79C6EA1F429CB100589A13 /* ZMJLrcView.m */; };
+		1E79C6EE1F42A02E00589A13 /* ZMJPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E79C6ED1F42A02E00589A13 /* ZMJPlayerManager.m */; };
 		1EA28FFE1F41540800C8C1B8 /* bb@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FCD1F41540800C8C1B8 /* bb@2x.jpg */; };
 		1EA28FFF1F41540800C8C1B8 /* bb_icon@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FCE1F41540800C8C1B8 /* bb_icon@2x.jpg */; };
 		1EA290001F41540800C8C1B8 /* dzq@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FCF1F41540800C8C1B8 /* dzq@2x.jpg */; };
@@ -67,7 +69,7 @@
 		1EA2902A1F41540800C8C1B8 /* 多幸运.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FFB1F41540800C8C1B8 /* 多幸运.mp3 */; };
 		1EA2902B1F41540800C8C1B8 /* 父亲.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FFC1F41540800C8C1B8 /* 父亲.mp3 */; };
 		1EA2902C1F41540800C8C1B8 /* 陈奕迅 - 陪你度过漫长岁月 (国语).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1EA28FFD1F41540800C8C1B8 /* 陈奕迅 - 陪你度过漫长岁月 (国语).mp3 */; };
-		1EA290381F41C5E400C8C1B8 /* app转让开发者账号.mov in Resources */ = {isa = PBXBuildFile; fileRef = 1EA290371F41C5E400C8C1B8 /* app转让开发者账号.mov */; };
+		1EA290381F41C5E400C8C1B8 /* 1.mov in Resources */ = {isa = PBXBuildFile; fileRef = 1EA290371F41C5E400C8C1B8 /* 1.mov */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +96,10 @@
 		0C6B02631F3B51DB00003709 /* ZMJlrcCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMJlrcCell.h; sourceTree = "<group>"; };
 		0C6B02641F3B51DB00003709 /* ZMJlrcCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMJlrcCell.m; sourceTree = "<group>"; };
 		0C6B02661F3B51F700003709 /* ZMJlrcCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZMJlrcCell.xib; sourceTree = "<group>"; };
+		1E79C6E91F429CB100589A13 /* ZMJLrcView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMJLrcView.h; sourceTree = "<group>"; };
+		1E79C6EA1F429CB100589A13 /* ZMJLrcView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMJLrcView.m; sourceTree = "<group>"; };
+		1E79C6EC1F42A02E00589A13 /* ZMJPlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMJPlayerManager.h; sourceTree = "<group>"; };
+		1E79C6ED1F42A02E00589A13 /* ZMJPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMJPlayerManager.m; sourceTree = "<group>"; };
 		1EA28FCD1F41540800C8C1B8 /* bb@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bb@2x.jpg"; sourceTree = "<group>"; };
 		1EA28FCE1F41540800C8C1B8 /* bb_icon@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bb_icon@2x.jpg"; sourceTree = "<group>"; };
 		1EA28FCF1F41540800C8C1B8 /* dzq@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "dzq@2x.jpg"; sourceTree = "<group>"; };
@@ -141,7 +147,7 @@
 		1EA28FFB1F41540800C8C1B8 /* 多幸运.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "多幸运.mp3"; sourceTree = "<group>"; };
 		1EA28FFC1F41540800C8C1B8 /* 父亲.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "父亲.mp3"; sourceTree = "<group>"; };
 		1EA28FFD1F41540800C8C1B8 /* 陈奕迅 - 陪你度过漫长岁月 (国语).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "陈奕迅 - 陪你度过漫长岁月 (国语).mp3"; sourceTree = "<group>"; };
-		1EA290371F41C5E400C8C1B8 /* app转让开发者账号.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "app转让开发者账号.mov"; sourceTree = "<group>"; };
+		1EA290371F41C5E400C8C1B8 /* 1.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = 1.mov; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +184,10 @@
 				0C6B02321F38C30A00003709 /* AppDelegate.m */,
 				0C6B02341F38C30A00003709 /* ViewController.h */,
 				0C6B02351F38C30A00003709 /* ViewController.m */,
+				1E79C6EC1F42A02E00589A13 /* ZMJPlayerManager.h */,
+				1E79C6ED1F42A02E00589A13 /* ZMJPlayerManager.m */,
+				1E79C6E91F429CB100589A13 /* ZMJLrcView.h */,
+				1E79C6EA1F429CB100589A13 /* ZMJLrcView.m */,
 				0C6B02511F3B3A9700003709 /* ZMJlrcViewModel.h */,
 				0C6B02521F3B3A9700003709 /* ZMJlrcViewModel.m */,
 				0C6B024E1F3B3A1600003709 /* ZMJLrcModel.h */,
@@ -189,7 +199,7 @@
 				0C6B02631F3B51DB00003709 /* ZMJlrcCell.h */,
 				0C6B02641F3B51DB00003709 /* ZMJlrcCell.m */,
 				0C6B02661F3B51F700003709 /* ZMJlrcCell.xib */,
-				1EA290371F41C5E400C8C1B8 /* app转让开发者账号.mov */,
+				1EA290371F41C5E400C8C1B8 /* 1.mov */,
 				0C6B025D1F3B459C00003709 /* NSDateFormatter+Convenience.h */,
 				0C6B025E1F3B459C00003709 /* NSDateFormatter+Convenience.m */,
 				1EA28FCC1F41540800C8C1B8 /* Images */,
@@ -375,7 +385,7 @@
 				1EA290041F41540800C8C1B8 /* eason_icon@2x.jpg in Resources */,
 				1EA290221F41540800C8C1B8 /* 1201111234.mp3 in Resources */,
 				1EA2901D1F41540800C8C1B8 /* 月半小夜曲.lrc in Resources */,
-				1EA290381F41C5E400C8C1B8 /* app转让开发者账号.mov in Resources */,
+				1EA290381F41C5E400C8C1B8 /* 1.mov in Resources */,
 				0C6B02391F38C30A00003709 /* Main.storyboard in Resources */,
 				1EA290111F41540800C8C1B8 /* zxy@2x.jpg in Resources */,
 				1EA290211F41540800C8C1B8 /* 10736444.mp3 in Resources */,
@@ -408,7 +418,9 @@
 			files = (
 				0C6B024D1F39F91A00003709 /* ZMJParser.m in Sources */,
 				0C6B02361F38C30A00003709 /* ViewController.m in Sources */,
+				1E79C6EB1F429CB100589A13 /* ZMJLrcView.m in Sources */,
 				0C6B02621F3B50E200003709 /* ZMJlrcLabel.m in Sources */,
+				1E79C6EE1F42A02E00589A13 /* ZMJPlayerManager.m in Sources */,
 				0C6B025F1F3B459C00003709 /* NSDateFormatter+Convenience.m in Sources */,
 				0C6B02531F3B3A9700003709 /* ZMJlrcViewModel.m in Sources */,
 				0C6B02331F38C30A00003709 /* AppDelegate.m in Sources */,

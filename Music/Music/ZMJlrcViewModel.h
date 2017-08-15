@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface ZMJlrcViewModel : NSObject
+
+- (void)fetchLocalDataSuccess:(void (^)())success failed:(void (^)())fail withFileName:(NSString *)filename;
  
 @end
