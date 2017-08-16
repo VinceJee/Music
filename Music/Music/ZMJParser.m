@@ -17,7 +17,7 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:filename ofType:nil];
     
     NSError *err;
-    NSString *allLrcString = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&err];
+    NSString *allLrcString = [NSString stringWithContentsOfFile:@"" encoding:NSUTF8StringEncoding error:&err];
     
     if (err) {
         NSLog(@"parse err :%@",err);

@@ -95,11 +95,11 @@ static NSString *cellid = @"ZMJlrcCellId";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackground) name:UIApplicationDidEnterBackgroundNotification object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterForeground) name:UIApplicationDidBecomeActiveNotification object:nil];
-    
+ 
     self.player = [[ZMJPlayerManager shareInstance] playLocalMusicWithMusicName:@"陈奕迅 - 陪你度过漫长岁月 (国语).mp3"];
     [self.player prepareToPlay];
     [self.player play];
-    
+
     
     _lrcView = [[ZMJLrcView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
     _lrcView.duration = self.player.duration;
